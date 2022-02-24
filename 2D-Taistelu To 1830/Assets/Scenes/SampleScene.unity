@@ -2122,6 +2122,7 @@ GameObject:
   - component: {fileID: 2115749113}
   - component: {fileID: 2115749115}
   - component: {fileID: 2115749116}
+  - component: {fileID: 2115749117}
   m_Layer: 0
   m_Name: Boy_0 (1)
   m_TagString: Untagged
@@ -2207,7 +2208,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.07957065, y: 0.32174218}
+  m_Offset: {x: 0.08, y: 0.35}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2218,7 +2219,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.91368747, y: 0.97099376}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &2115749114
 Rigidbody2D:
@@ -2254,9 +2255,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.03753717, y: -0.42139542}
+  m_Offset: {x: 0.0375, y: -0.4}
   serializedVersion: 2
-  m_Radius: 0.44006336
+  m_Radius: 0.45
 --- !u!114 &2115749116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2270,10 +2271,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpForce: 5
+  jumpForce: 25
   myRigidbody2D: {fileID: 2115749114}
   feet: {fileID: 2115749115}
   facing: 1
   PoopLMAO:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &2115749117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115749110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df01b8a1cea019d4193d66ac4e68ab27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxhealth: 100
+  health: 0
+  HitTimer: 0.15
+  isHit: 1
+  myRigidbody: {fileID: 0}
