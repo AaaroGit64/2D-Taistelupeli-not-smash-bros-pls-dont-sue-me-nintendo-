@@ -1468,6 +1468,66 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1240468131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1240468132}
+  m_Layer: 0
+  m_Name: PunchCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1240468132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240468131}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.79, y: 0.296, z: 0}
+  m_LocalScale: {x: 0.6265767, y: 1.1691226, z: 0.89932513}
+  m_Children: []
+  m_Father: {fileID: 2115749112}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1281444333
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1281444334}
+  m_Layer: 0
+  m_Name: KickCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1281444334
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281444333}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.52, y: -0.18, z: 0}
+  m_LocalScale: {x: 0.62658, y: 1.16912, z: 0.89932996}
+  m_Children: []
+  m_Father: {fileID: 2115749112}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1377218342
 GameObject:
   m_ObjectHideFlags: 0
@@ -2123,6 +2183,7 @@ GameObject:
   - component: {fileID: 2115749115}
   - component: {fileID: 2115749116}
   - component: {fileID: 2115749117}
+  - component: {fileID: 2115749118}
   m_Layer: 0
   m_Name: Boy_0 (1)
   m_TagString: Untagged
@@ -2170,7 +2231,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -394591486901757920, guid: 64111d89be80aca408294d2a431437af, type: 3}
+  m_Sprite: {fileID: 7642467643661132877, guid: 64111d89be80aca408294d2a431437af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2189,9 +2250,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2115749110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1433, y: 2.4473, z: 0}
+  m_LocalPosition: {x: -0.1489, y: 2.4529, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1240468132}
+  - {fileID: 1281444334}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2271,7 +2334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpForce: 25
+  jumpForce: 5
   myRigidbody2D: {fileID: 2115749114}
   feet: {fileID: 2115749115}
   facing: 1
@@ -2295,3 +2358,25 @@ MonoBehaviour:
   HitTimer: 0.15
   isHit: 1
   myRigidbody: {fileID: 0}
+--- !u!114 &2115749118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115749110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a07b68c95d9bf840852ce8bdcd64862, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  punchDamage: 3
+  kickDamage: 4
+  blockCheck: 0
+  punchCheck: {fileID: 1240468132}
+  kickCheck: {fileID: 1281444334}
+  range: 0.25
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  cooldown: 0.2
