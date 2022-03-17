@@ -15,12 +15,14 @@ public class helnth : MonoBehaviour
 
     public Rigidbody2D myRigidbody;
     scripts4scrubslikeme moveScript;
+    hitpeopleuntiltheyfingdie fightingScript;
 
 
     // Start is called before the first frame update
     void Start()
     {
         moveScript = GetComponent<scripts4scrubslikeme>();
+        fightingScript = GetComponent<hitpeopleuntiltheyfingdie>();
         health = maxhealth;
 
     }
@@ -44,10 +46,26 @@ public class helnth : MonoBehaviour
     public void GetSmashedIntoOblivion(float philSwift)
     {
         if(!isHit)
-        { 
-            // now that's a lotta damage
-            health  -= philSwift;
-            StartCoroutine(Knockback());
+        {
+            // fuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuck
+            // fuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuck
+            // fuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuck
+            // fuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuck
+            // fuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuck
+            // fuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuck
+            // fuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuck
+            // fuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuck
+            if (fightingScript.blockCheck)
+            {
+                health -= philSwift / 2;
+
+            }
+            else
+            {
+                // now that's a lotta damage
+                health -= philSwift;
+                StartCoroutine(Knockback());
+            }
 
         }
        
