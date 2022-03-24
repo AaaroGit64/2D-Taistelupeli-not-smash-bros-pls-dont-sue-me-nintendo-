@@ -14,10 +14,13 @@ public class scripts4scrubslikeme : MonoBehaviour
     
     public LayerMask PoopLMAO;
 
+    helnth healthsoyoudonotdie;
+
+
     // Start is called before the first frame update
     void Start()
     {
-
+        healthsoyoudonotdie = GetComponent<helnth>();
     }
 
     // Update is called once per frame
@@ -26,14 +29,19 @@ public class scripts4scrubslikeme : MonoBehaviour
         horizontalMovement = Input.GetAxis("Horizontal");
         if (Input.GetButtonDown("Jump") && feet.IsTouchingLayers(PoopLMAO))
         {
-
-            myRigidbody2D.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+            if (Input.GetButtonDown("Jump") && feet.IsTouchingLayers(PoopLMAO))
+            {
+                myRigidbody2D.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+            }
         }
     }
 
     void FixedUpdate()
     {
-        myRigidbody2D.velocity = new Vector2(horizontalMovement * speed, myRigidbody2D.velocity.y);
+        if (healthsoyoudonotdie.isHit)
+        {
+            myRigidbody2D.velocity = new Vector2(horizontalMovement * speed, myRigidbody2D.velocity.y);
+        }
     }
 
 }

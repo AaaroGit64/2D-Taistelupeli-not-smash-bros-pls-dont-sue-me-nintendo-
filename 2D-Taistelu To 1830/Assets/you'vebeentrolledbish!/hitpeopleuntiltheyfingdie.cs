@@ -34,6 +34,12 @@ public class hitpeopleuntiltheyfingdie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!healthsoyoudonotdie.isHit)
+        {
+            return;
+
+
+        }
         if (!blockCheck && !ifpunchhappen && cooldownTimer <= 0)
         {
             if (Input.GetButtonDown("Fire1"))
