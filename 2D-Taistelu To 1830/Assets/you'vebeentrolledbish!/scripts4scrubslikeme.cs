@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+// N. Gin
 public class scripts4scrubslikeme : MonoBehaviour
 {
     public float speed = 10f;
@@ -13,6 +11,8 @@ public class scripts4scrubslikeme : MonoBehaviour
     public int facing = 1;
     
     public LayerMask PoopLMAO;
+
+    public Animator animator;
 
     helnth healthsoyoudonotdie;
 
@@ -32,6 +32,15 @@ public class scripts4scrubslikeme : MonoBehaviour
             if (Input.GetButtonDown("Jump") && feet.IsTouchingLayers(PoopLMAO))
             {
                 myRigidbody2D.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+                animator.SetTrigger("Jump");
+            }
+            if (feet.IsTouchingLayers(PoopLMAO))
+            {
+                animator.SetBool("IsTouchingGrass", true);
+
+
+                animator.SetBool("IsTouchingGrass", false);
+
             }
         }
     }
@@ -41,6 +50,7 @@ public class scripts4scrubslikeme : MonoBehaviour
         if (healthsoyoudonotdie.isHit)
         {
             myRigidbody2D.velocity = new Vector2(horizontalMovement * speed, myRigidbody2D.velocity.y);
+            animator.SetFloat("Speed", Mathf.Abs(horizontalMovement));
         }
     }
 
