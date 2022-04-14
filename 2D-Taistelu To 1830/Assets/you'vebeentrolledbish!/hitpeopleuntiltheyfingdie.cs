@@ -23,10 +23,13 @@ public class hitpeopleuntiltheyfingdie : MonoBehaviour
     private bool ifpunchhappen = false;
     private int chooser;
     helnth healthsoyoudonotdie;
+    Animator animator;
+    
     // Start is called before the first frame update
     void Start()
     {
         healthsoyoudonotdie = GetComponent<helnth>();
+        animator = GetComponent<Animator>();
     
     }
 
@@ -104,14 +107,16 @@ public class hitpeopleuntiltheyfingdie : MonoBehaviour
     }
     private void Kick()
     {
-        //piss
+        //cope
+        animator.SetTrigger("Keft");
         Attack(kickCheck, kickDamage);
 
     }
 
     private void Punch()
     {
-        //shit
+        //harder
+        animator.SetTrigger("Peft");
         Attack(punchCheck, punchDamage);
 
     }

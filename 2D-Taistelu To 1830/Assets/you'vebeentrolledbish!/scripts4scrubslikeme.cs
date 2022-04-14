@@ -15,6 +15,7 @@ public class scripts4scrubslikeme : MonoBehaviour
     public Animator animator;
 
     helnth healthsoyoudonotdie;
+    bool isGrounded;
 
 
     // Start is called before the first frame update
@@ -27,6 +28,7 @@ public class scripts4scrubslikeme : MonoBehaviour
     void Update()
     {
         horizontalMovement = Input.GetAxis("Horizontal");
+        isGrounded = feet.IsTouchingLayers(PoopLMAO);
         if (Input.GetButtonDown("Jump") && feet.IsTouchingLayers(PoopLMAO))
         {
             if (Input.GetButtonDown("Jump") && feet.IsTouchingLayers(PoopLMAO))
@@ -34,14 +36,18 @@ public class scripts4scrubslikeme : MonoBehaviour
                 myRigidbody2D.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 animator.SetTrigger("Jump");
             }
-            if (feet.IsTouchingLayers(PoopLMAO))
+
+            animator.SetBool("IsTouchingGrass", isGrounded);
+            /*if (feet.IsTouchingLayers(PoopLMAO))
             {
-                animator.SetBool("IsTouchingGrass", true);
-
-
-                animator.SetBool("IsTouchingGrass", false);
-
+                //animator.SetBool("IsTouchingGrass", true);
+                
             }
+            else
+            {
+                animator.SetBool("IsTouchingGrass", false);
+            
+            }*/
         }
     }
 
