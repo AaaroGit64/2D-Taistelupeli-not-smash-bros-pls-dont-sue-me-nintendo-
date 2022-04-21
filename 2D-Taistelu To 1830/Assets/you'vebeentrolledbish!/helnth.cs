@@ -17,6 +17,10 @@ public class helnth : MonoBehaviour
     scripts4scrubslikeme moveScript;
     hitpeopleuntiltheyfingdie fightingScript;
 
+    private float Damage;
+
+    public bool isDummy;
+
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +44,7 @@ public class helnth : MonoBehaviour
 
     private void Die()
     {
-        // make hurt
+        // Die
     }
 
     public void GetSmashedIntoOblivion(float philSwift)
@@ -66,6 +70,7 @@ public class helnth : MonoBehaviour
                 health -= philSwift;
                 StartCoroutine(Knockback());
             }
+            Debug.Log("health: " + health);
 
         }
        

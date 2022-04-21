@@ -33,8 +33,11 @@ public class scripts4scrubslikeme : MonoBehaviour
         {
             if (Input.GetButtonDown("Jump") && feet.IsTouchingLayers(PoopLMAO))
             {
-                myRigidbody2D.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-                animator.SetTrigger("Jump");
+                if (!healthsoyoudonotdie.isDummy)
+                {
+                    myRigidbody2D.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+                    animator.SetTrigger("Jump");
+                }
             }
 
             animator.SetBool("IsTouchingGrass", isGrounded);
@@ -55,8 +58,11 @@ public class scripts4scrubslikeme : MonoBehaviour
     {
         if (healthsoyoudonotdie.isHit)
         {
-            myRigidbody2D.velocity = new Vector2(horizontalMovement * speed, myRigidbody2D.velocity.y);
-            animator.SetFloat("Speed", Mathf.Abs(horizontalMovement));
+            if (!healthsoyoudonotdie.isDummy)
+            {
+                myRigidbody2D.velocity = new Vector2(horizontalMovement * speed, myRigidbody2D.velocity.y);
+                animator.SetFloat("Speed", Mathf.Abs(horizontalMovement));
+            }
         }
     }
 

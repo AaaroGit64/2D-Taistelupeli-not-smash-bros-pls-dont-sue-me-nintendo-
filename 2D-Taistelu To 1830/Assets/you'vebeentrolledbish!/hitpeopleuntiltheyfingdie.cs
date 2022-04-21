@@ -45,6 +45,11 @@ public class hitpeopleuntiltheyfingdie : MonoBehaviour
         }
         if (!blockCheck && !ifpunchhappen && cooldownTimer <= 0)
         {
+            if (healthsoyoudonotdie.isDummy)
+            {
+                return;
+            }
+
             if (Input.GetButtonDown("Fire1"))
             {
                 Punch();
@@ -55,58 +60,66 @@ public class hitpeopleuntiltheyfingdie : MonoBehaviour
                 Kick();
 
             }
-        }
 
-        if (Input.GetButtonDown("Fire3"))
-        {
-            Block();
 
-        }
-        if (Input.GetButtonUp("Fire3"))
-        {
-            BlockEnd();
-
-        }
-        if (hit)
-        {
-            if (cooldownTimer > 0)
+            if (Input.GetButtonDown("Fire3"))
             {
-                cooldownTimer = -Time.deltaTime;
+                Block();
 
-            }else 
-            {
-                ifpunchhappen = false;
             }
+            if (Input.GetButtonUp("Fire3"))
+            {
+                BlockEnd();
 
+            }
+            if (hit)
+            {
+                if (cooldownTimer > 0)
+                {
+                    cooldownTimer = -Time.deltaTime;
+
+                }
+                else
+                {
+                    ifpunchhappen = false;
+                }
+
+            }
         }
     }
 
-           
-    void Attack(Transform check, float damage)
-    {
-        Collider2D[] enemyHit = Physics2D.OverlapCircleAll(check.position,range,enemyLayer);
-        if(enemyHit != null)
+        void Attack(Transform check, float damage)
         {
-
-            foreach(Collider2D enemy in enemyHit)
+            Collider2D[] enemyHit = Physics2D.OverlapCircleAll(check.position, range, enemyLayer);
+            if (enemyHit != null)
             {
-                if (hit == false)
+
+                foreach (Collider2D enemy in enemyHit)
                 {
-                    if (enemy.gameObject != this.gameObject)
+                    if (hit == false)
                     {
-                        enemy.GetComponent<helnth>().GetSmashedIntoOblivion(damage);
+                        if (enemy.gameObject != this.gameObject)
+                        {
+                            Debug.Log("Take Damage");
+                            enemy.GetComponent<helnth>().GetSmashedIntoOblivion(damage);
+                            hit = true;
+                        }
+
                     }
-                       
+
                 }
-              
+                hit = false;
             }
-            hit = false;
+            ifpunchhappen = true;
+            cooldownTimer = cooldown;
         }
-        ifpunchhappen = true;
-        cooldownTimer = cooldown;
     }
     private void Kick()
     {
+        if (healthsoyoudonotdie.isDummy)
+        {
+            return;
+        }
         //cope
         animator.SetTrigger("Keft");
         Attack(kickCheck, kickDamage);
@@ -115,6 +128,10 @@ public class hitpeopleuntiltheyfingdie : MonoBehaviour
 
     private void Punch()
     {
+        if (healthsoyoudonotdie.isDummy)
+        {
+            return;
+        }
         //harder
         animator.SetTrigger("Peft");
         Attack(punchCheck, punchDamage);
@@ -122,11 +139,20 @@ public class hitpeopleuntiltheyfingdie : MonoBehaviour
     }
     private void Block()
     {
+        if (healthsoyoudonotdie.isDummy)
+        {
+            return;
+        }
+    
         blockCheck = true;
 
     }
     private void BlockEnd()
     {
+        if (healthsoyoudonotdie.isDummy)
+        {
+            return;
+        }
         blockCheck = false;
 
     }
