@@ -20,6 +20,9 @@ public class helnth : MonoBehaviour
     private float Damage;
 
     public bool isDummy;
+    public bool isAlive {get; private set;}
+
+    Animator animator;
 
 
     // Start is called before the first frame update
@@ -28,13 +31,15 @@ public class helnth : MonoBehaviour
         moveScript = GetComponent<scripts4scrubslikeme>();
         fightingScript = GetComponent<hitpeopleuntiltheyfingdie>();
         health = maxhealth;
+        animator = GetComponent<Animator>();
+        isAlive = true;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-       if (health <= 0);
+       if (health <= 0)
        {
             Die();
 
@@ -44,13 +49,27 @@ public class helnth : MonoBehaviour
 
     private void Die()
     {
-        // Die
+        if (isAlive == true) {
+            // Die
+            animator.SetTrigger("YouAreDedNotBigSurprise");
+            isAlive = false;
+        
+        }
+
+        
     }
 
     public void GetSmashedIntoOblivion(float philSwift)
     {
+        
+        if (isAlive == false)
+            {
+                return;
+
+            }
         if(!isHit)
         {
+            
             // fuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuck
             // fuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuck
             // fuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuck

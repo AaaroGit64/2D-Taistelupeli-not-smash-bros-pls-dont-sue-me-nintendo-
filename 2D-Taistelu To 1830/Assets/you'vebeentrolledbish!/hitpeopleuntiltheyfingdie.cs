@@ -37,83 +37,89 @@ public class hitpeopleuntiltheyfingdie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (healthsoyoudonotdie.isAlive == false)
+        {
+            return;
+        }
         if (!healthsoyoudonotdie.isHit)
         {
             return;
-
-
         }
-        if (!blockCheck && !ifpunchhappen && cooldownTimer <= 0)
-        {
-            if (healthsoyoudonotdie.isDummy)
+            if (!blockCheck && !ifpunchhappen && cooldownTimer <= 0)
             {
-                return;
-            }
-
-            if (Input.GetButtonDown("Fire1"))
-            {
-                Punch();
-
-            }
-            if (Input.GetButtonDown("Fire2"))
-            {
-                Kick();
-
-            }
-
-
-            if (Input.GetButtonDown("Fire3"))
-            {
-                Block();
-
-            }
-            if (Input.GetButtonUp("Fire3"))
-            {
-                BlockEnd();
-
-            }
-            if (hit)
-            {
-                if (cooldownTimer > 0)
+                if (healthsoyoudonotdie.isDummy)
                 {
-                    cooldownTimer = -Time.deltaTime;
-
-                }
-                else
-                {
-                    ifpunchhappen = false;
+                    return;
                 }
 
-            }
-        }
-    }
-
-        void Attack(Transform check, float damage)
-        {
-            Collider2D[] enemyHit = Physics2D.OverlapCircleAll(check.position, range, enemyLayer);
-            if (enemyHit != null)
-            {
-
-                foreach (Collider2D enemy in enemyHit)
+                if (Input.GetButtonDown("Fire1"))
                 {
-                    if (hit == false)
+                    Punch();
+
+                }
+                if (Input.GetButtonDown("Fire2"))
+                {
+                    Kick();
+
+                }
+
+
+                if (Input.GetButtonDown("Fire3"))
+                {
+                    Block();
+
+                }
+                if (Input.GetButtonUp("Fire3"))
+                {
+                    BlockEnd();
+
+                }
+                if (ifpunchhappen)
+                {
+                    if (cooldownTimer > 0)
                     {
-                        if (enemy.gameObject != this.gameObject)
-                        {
-                            Debug.Log("Take Damage");
-                            enemy.GetComponent<helnth>().GetSmashedIntoOblivion(damage);
-                            hit = true;
-                        }
+                        cooldownTimer = -Time.deltaTime;
 
+                    }
+                    else
+                    {
+                        ifpunchhappen = false;
                     }
 
                 }
-                hit = false;
+            
+
             }
+       
+        
+    }
+
+    void Attack(Transform check, float damage)
+    {
+        Collider2D[] enemyHit = Physics2D.OverlapCircleAll(check.position, range, enemyLayer);
+        if (enemyHit != null)
+        {
+
+            foreach (Collider2D enemy in enemyHit)
+            {
+                if (hit == false)
+                {
+                    if (enemy.gameObject != this.gameObject)
+                    {
+                            Debug.Log("Take Damage");
+                            enemy.GetComponent<helnth>().GetSmashedIntoOblivion(damage);
+                            hit = true;
+                    }
+
+                }
+
+             }
+                hit = false;
+        }
             ifpunchhappen = true;
             cooldownTimer = cooldown;
-        }
     }
+    
     private void Kick()
     {
         if (healthsoyoudonotdie.isDummy)

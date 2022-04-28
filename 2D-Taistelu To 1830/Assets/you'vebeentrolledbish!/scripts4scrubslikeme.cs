@@ -27,6 +27,11 @@ public class scripts4scrubslikeme : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (healthsoyoudonotdie.isAlive == false)
+        {
+            return;
+        }
         horizontalMovement = Input.GetAxis("Horizontal");
         isGrounded = feet.IsTouchingLayers(PoopLMAO);
         if (Input.GetButtonDown("Jump") && feet.IsTouchingLayers(PoopLMAO))
@@ -56,6 +61,10 @@ public class scripts4scrubslikeme : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (healthsoyoudonotdie.isAlive == false)
+        {
+            return;
+        }
         if (healthsoyoudonotdie.isHit)
         {
             if (!healthsoyoudonotdie.isDummy)
