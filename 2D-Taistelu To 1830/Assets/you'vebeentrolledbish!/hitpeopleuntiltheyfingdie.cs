@@ -39,58 +39,61 @@ public class hitpeopleuntiltheyfingdie : MonoBehaviour
     {
         if (healthsoyoudonotdie.isAlive == false)
         {
+
             return;
         }
-        if (!healthsoyoudonotdie.isHit)
+        if (healthsoyoudonotdie.isHit)
         {
+
             return;
         }
-            if (!blockCheck && !ifpunchhappen && cooldownTimer <= 0)
+        if (!blockCheck && !ifpunchhappen && cooldownTimer <= 0)
+        {
+            if (healthsoyoudonotdie.isDummy)
             {
-                if (healthsoyoudonotdie.isDummy)
-                {
-                    return;
-                }
+                return;
+            }
 
-                if (Input.GetButtonDown("Fire1"))
-                {
-                    Punch();
-
-                }
-                if (Input.GetButtonDown("Fire2"))
-                {
-                    Kick();
-
-                }
-
-
-                if (Input.GetButtonDown("Fire3"))
-                {
-                    Block();
-
-                }
-                if (Input.GetButtonUp("Fire3"))
-                {
-                    BlockEnd();
-
-                }
-                if (ifpunchhappen)
-                {
-                    if (cooldownTimer > 0)
-                    {
-                        cooldownTimer = -Time.deltaTime;
-
-                    }
-                    else
-                    {
-                        ifpunchhappen = false;
-                    }
-
-                }
-            
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Debug.Log("Lyönti");
+                Punch();
 
             }
-       
+            if (Input.GetButtonDown("Fire2"))
+            {
+                Kick();
+
+            }
+
+        }
+            if (Input.GetButtonDown("Fire3"))
+            {
+            if (healthsoyoudonotdie.isDummy)
+            {
+                return;
+            }
+                Block();
+
+            }
+            if (Input.GetButtonUp("Fire3"))
+            {
+                BlockEnd();
+
+            }
+            if (ifpunchhappen)
+            {
+                if (cooldownTimer > 0)
+                {
+                    cooldownTimer = -Time.deltaTime;
+
+                }
+                else
+                {
+                    ifpunchhappen = false;
+                }
+
+            }
         
     }
 
@@ -106,7 +109,7 @@ public class hitpeopleuntiltheyfingdie : MonoBehaviour
                 {
                     if (enemy.gameObject != this.gameObject)
                     {
-                            Debug.Log("Take Damage");
+                        Debug.Log("Attack");
                             enemy.GetComponent<helnth>().GetSmashedIntoOblivion(damage);
                             hit = true;
                     }

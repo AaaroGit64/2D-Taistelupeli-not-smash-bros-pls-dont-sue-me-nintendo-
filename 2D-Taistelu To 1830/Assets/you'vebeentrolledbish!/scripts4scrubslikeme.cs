@@ -30,6 +30,7 @@ public class scripts4scrubslikeme : MonoBehaviour
 
         if (healthsoyoudonotdie.isAlive == false)
         {
+            
             return;
         }
         horizontalMovement = Input.GetAxis("Horizontal");
@@ -65,10 +66,11 @@ public class scripts4scrubslikeme : MonoBehaviour
         {
             return;
         }
-        if (healthsoyoudonotdie.isHit)
+        if (!healthsoyoudonotdie.isHit)
         {
             if (!healthsoyoudonotdie.isDummy)
             {
+
                 myRigidbody2D.velocity = new Vector2(horizontalMovement * speed, myRigidbody2D.velocity.y);
                 animator.SetFloat("Speed", Mathf.Abs(horizontalMovement));
             }

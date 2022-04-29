@@ -50,6 +50,7 @@ public class helnth : MonoBehaviour
     private void Die()
     {
         if (isAlive == true) {
+            
             // Die
             animator.SetTrigger("YouAreDedNotBigSurprise");
             isAlive = false;
@@ -61,15 +62,15 @@ public class helnth : MonoBehaviour
 
     public void GetSmashedIntoOblivion(float philSwift)
     {
-        
-        if (isAlive == false)
-            {
-                return;
 
-            }
+        if (isAlive == false)
+        {
+           
+            return;
+        }
         if(!isHit)
         {
-            
+            Debug.Log("Damagea");   
             // fuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuck
             // fuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuck
             // fuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuckfuck

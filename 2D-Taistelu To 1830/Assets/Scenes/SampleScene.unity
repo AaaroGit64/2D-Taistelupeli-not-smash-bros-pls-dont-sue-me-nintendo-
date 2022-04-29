@@ -426,8 +426,8 @@ MonoBehaviour:
   maxhealth: 100
   health: 0
   HitTimer: 0.15
-  isHit: 1
-  myRigidbody: {fileID: 0}
+  isHit: 0
+  myRigidbody: {fileID: 415165039}
   isDummy: 1
 --- !u!114 &415165036
 MonoBehaviour:
@@ -2652,8 +2652,8 @@ MonoBehaviour:
   maxhealth: 100
   health: 0
   HitTimer: 0.15
-  isHit: 1
-  myRigidbody: {fileID: 0}
+  isHit: 0
+  myRigidbody: {fileID: 2115749114}
   isDummy: 0
 --- !u!114 &2115749118
 MonoBehaviour:
